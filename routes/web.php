@@ -17,6 +17,12 @@ Route::get('/', function () {
 //Route::get('/hello', function () {
  //   return view('helloworld');
 //});
-Route::get('/hello', 'MyController@vinayak');
-Route::post('/register', 'MyController@vinayak1');
-Route::get('/test', 'MyController@storedata');
+Route::get('/insert', 'MyController@insert');
+Route::get('/register1', 'MyController@vinayak1');
+Route::get('/storedata', 'MyController@storedata');
+Route::get('/show', 'MyController@showdata');
+Route::get('/edit', 'MyController@edit');
+Route::get('/delete', 'MyController@delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
