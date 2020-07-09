@@ -31,18 +31,23 @@ class MyController extends Controller
     }
      public function showdata()
     {
-        $data['data']=DB::table('students')->get();
+        $data['data']=student::all();
         if(count($data)>0)
         {
             return view('show',$data);
         }
 }
-public function edit()
+public function edit($id)
 {
-    return "success";
+   $student=student::find($id);
+   
+    return view('update',$student);
+
 }
-public function delete()
+public function delete($id)
 {
-    return "deleted";
+    $data=student::find($id); 
+    $data->delete();
+    return redirect('/show');
 }
 }
